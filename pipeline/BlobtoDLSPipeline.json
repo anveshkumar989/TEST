@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "BlobtoADL",
+				"description": "myfirstpipeline",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
