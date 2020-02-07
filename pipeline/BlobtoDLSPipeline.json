@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "BlobtoADL",
+				"description": "myfirstpipeline",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
