@@ -280,11 +280,6 @@
 						]
 					}
 				],
-				"parameters": {
-					"Enter database name": {
-						"type": "String"
-					}
-				},
 				"annotations": []
 			},
 			"dependsOn": [
