@@ -37,38 +37,42 @@
 						"mappings": [
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 1
+									"name": "empid",
+									"type": "String"
 								},
 								"sink": {
-									"name": "EMPID"
+									"name": "Empid",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 2
+									"name": "empname",
+									"type": "String"
 								},
 								"sink": {
-									"name": "EMPNAME"
+									"name": "empname",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 3
+									"name": "salary",
+									"type": "String"
 								},
 								"sink": {
-									"name": "SALARY"
+									"name": "salary",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 4
+									"name": "deptid",
+									"type": "String"
 								},
 								"sink": {
-									"name": "DEPTID"
+									"name": "deptid",
+									"type": "String"
 								}
 							}
 						]
