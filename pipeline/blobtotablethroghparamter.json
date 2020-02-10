@@ -80,13 +80,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "EMPBLOB",
+						"referenceName": "EMPBLOBParameter",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "AzureSqlTableParameter",
 						"type": "DatasetReference"
 					}
 				]
