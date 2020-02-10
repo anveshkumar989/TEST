@@ -3,18 +3,7 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabasetest",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"Enter Database Name": {
-					"value": "@dataset().Enter Database Name",
-					"type": "Expression"
-				}
-			}
-		},
-		"parameters": {
-			"Enter Database Name": {
-				"type": "string"
-			}
+			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
