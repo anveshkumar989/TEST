@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'EMPAzureblobstorage'"
 		},
+		"LatestAzureSQLDBConnection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LatestAzureSQLDBConnection'"
+		},
 		"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://adlstorages.azuredatalakestore.net/webhdfs/v1"
@@ -49,12 +53,6 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"parameters": {
-					"Enter Database Name": {
-						"type": "string",
-						"defaultValue": "@{linkedService().Enter Database Name}"
-					}
-				},
 				"annotations": [],
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
@@ -255,13 +253,7 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabasetest",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"Enter Database Name": {
-							"value": "@dataset().Enter Database Name",
-							"type": "Expression"
-						}
-					}
+					"type": "LinkedServiceReference"
 				},
 				"parameters": {
 					"Enter Database Name": {
@@ -296,6 +288,19 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabasetest')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LatestAzureSQLDBConnection')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('LatestAzureSQLDBConnection_connectionString')]"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

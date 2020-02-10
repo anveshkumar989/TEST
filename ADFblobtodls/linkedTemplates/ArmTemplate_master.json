@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'EMPAzureblobstorage'"
 		},
+		"LatestAzureSQLDBConnection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LatestAzureSQLDBConnection'"
+		},
 		"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://adlstorages.azuredatalakestore.net/webhdfs/v1"
@@ -74,6 +78,9 @@
 					},
 					"EMPAzureblobstorage_connectionString": {
 						"value": "[parameters('EMPAzureblobstorage_connectionString')]"
+					},
+					"LatestAzureSQLDBConnection_connectionString": {
+						"value": "[parameters('LatestAzureSQLDBConnection_connectionString')]"
 					},
 					"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
 						"value": "[parameters('DLSTarget_properties_typeProperties_dataLakeStoreUri')]"
