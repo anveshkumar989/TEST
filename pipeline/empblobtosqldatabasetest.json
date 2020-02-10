@@ -26,6 +26,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"DATABASENAME": {
+				"type": "string",
+				"defaultValue": "ENTER DATABASE"
+			}
+		},
 		"annotations": []
 	}
 }
