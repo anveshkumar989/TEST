@@ -81,13 +81,19 @@
 				"inputs": [
 					{
 						"referenceName": "EMPBLOBParameter",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Enter file name": "emplatest"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTableParameter",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Enter table name": "employeelatest"
+						}
 					}
 				]
 			}
