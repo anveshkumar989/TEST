@@ -1,0 +1,98 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFblobtodls"
+		},
+		"AzureSqlDatabasetest_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabasetest'"
+		},
+		"DLSTarget_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'DLSTarget'"
+		},
+		"EMPAzureblobstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'EMPAzureblobstorage'"
+		},
+		"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://adlstorages.azuredatalakestore.net/webhdfs/v1"
+		},
+		"DLSTarget_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "55982e5d-e2b1-4a38-a13d-49947eb0fb17"
+		},
+		"DLSTarget_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "6267732a-892c-4094-a45a-99c6799d096e"
+		},
+		"DLSTarget_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "9a0515ae-f9b9-4de1-87bc-f64a14505d89"
+		},
+		"DLSTarget_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "MyFirstResourceGroup"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabasetest_connectionString": {
+						"value": "[parameters('AzureSqlDatabasetest_connectionString')]"
+					},
+					"DLSTarget_servicePrincipalKey": {
+						"value": "[parameters('DLSTarget_servicePrincipalKey')]"
+					},
+					"EMPAzureblobstorage_connectionString": {
+						"value": "[parameters('EMPAzureblobstorage_connectionString')]"
+					},
+					"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('DLSTarget_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"DLSTarget_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('DLSTarget_properties_typeProperties_servicePrincipalId')]"
+					},
+					"DLSTarget_properties_typeProperties_tenant": {
+						"value": "[parameters('DLSTarget_properties_typeProperties_tenant')]"
+					},
+					"DLSTarget_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('DLSTarget_properties_typeProperties_subscriptionId')]"
+					},
+					"DLSTarget_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('DLSTarget_properties_typeProperties_resourceGroupName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

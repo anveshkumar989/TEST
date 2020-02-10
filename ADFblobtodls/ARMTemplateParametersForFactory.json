@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFblobtodls"
+		},
+		"AzureSqlDatabasetest_connectionString": {
+			"value": ""
+		},
+		"DLSTarget_servicePrincipalKey": {
+			"value": ""
+		},
+		"EMPAzureblobstorage_connectionString": {
+			"value": ""
+		},
+		"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://adlstorages.azuredatalakestore.net/webhdfs/v1"
+		},
+		"DLSTarget_properties_typeProperties_servicePrincipalId": {
+			"value": "55982e5d-e2b1-4a38-a13d-49947eb0fb17"
+		},
+		"DLSTarget_properties_typeProperties_tenant": {
+			"value": "6267732a-892c-4094-a45a-99c6799d096e"
+		},
+		"DLSTarget_properties_typeProperties_subscriptionId": {
+			"value": "9a0515ae-f9b9-4de1-87bc-f64a14505d89"
+		},
+		"DLSTarget_properties_typeProperties_resourceGroupName": {
+			"value": "MyFirstResourceGroup"
+		}
+	}
+}
