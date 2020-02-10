@@ -471,16 +471,20 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "EMPBLOB",
+								"referenceName": "EMPBLOBParameter",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Enter file name": "emplatest"
+								}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "AzureSqlTable1",
+								"referenceName": "AzureSqlTableParameter",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Enter table name": "employeelatest"
+								}
 							}
 						]
 					}
@@ -488,8 +492,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/EMPBLOB')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
+				"[concat(variables('factoryId'), '/datasets/EMPBLOBParameter')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTableParameter')]"
 			]
 		}
 	]
