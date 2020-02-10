@@ -5,17 +5,12 @@
 			"referenceName": "EMPAzureblobstorage",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"SPECIFY FILE": {
-				"type": "string",
-				"defaultValue": "ENTER FILE NAME"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "emplatest.txt",
 				"container": "source"
 			},
 			"columnDelimiter": ",",
