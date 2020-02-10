@@ -272,7 +272,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "Employee"
+					"table": "employeelatest"
 				}
 			},
 			"dependsOn": [
