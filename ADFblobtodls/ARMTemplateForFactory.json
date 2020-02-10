@@ -133,7 +133,12 @@
 							"dataflow": {
 								"referenceName": "dataflow1",
 								"type": "DataFlowReference",
-								"parameters": {},
+								"parameters": {
+									"as": {
+										"value": "'@{pipeline().parameters.DATABASENAME}'",
+										"type": "Expression"
+									}
+								},
 								"datasetParameters": {
 									"empcsvdataflow": {},
 									"emptesttable": {}
@@ -147,6 +152,12 @@
 						}
 					}
 				],
+				"parameters": {
+					"DATABASENAME": {
+						"type": "string",
+						"defaultValue": "ENTER DATABASE"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -388,7 +399,7 @@
 						}
 					],
 					"transformations": [],
-					"script": "source(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tsalary as string,\n\t\tdeptid as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> empcsvdataflow\nempcsvdataflow sink(input(\n\t\tEmpid as string,\n\t\tempname as string,\n\t\tsalary as string,\n\t\tdeptid as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table',\n\tmapColumn(\n\t\tEmpid = empid,\n\t\tempname,\n\t\tsalary,\n\t\tdeptid\n\t)) ~> emptesttable"
+					"script": "parameters{\n\tas as string\n}\nsource(output(\n\t\tempid as string,\n\t\tempname as string,\n\t\tsalary as string,\n\t\tdeptid as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipLines: 1) ~> empcsvdataflow\nempcsvdataflow sink(input(\n\t\tEmpid as string,\n\t\tempname as string,\n\t\tsalary as string,\n\t\tdeptid as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tEmpid = empid,\n\t\tempname,\n\t\tsalary,\n\t\tdeptid\n\t)) ~> emptesttable"
 				}
 			},
 			"dependsOn": [
