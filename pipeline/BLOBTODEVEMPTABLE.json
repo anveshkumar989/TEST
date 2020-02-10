@@ -87,11 +87,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"ENTER": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
