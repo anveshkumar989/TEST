@@ -184,12 +184,7 @@
 							{
 								"referenceName": "AzureSqlTable1",
 								"type": "DatasetReference",
-								"parameters": {
-									"Enter Database Name": {
-										"value": "@pipeline().parameters.Enter database name",
-										"type": "Expression"
-									}
-								}
+								"parameters": {}
 							}
 						]
 					}
@@ -254,11 +249,6 @@
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabasetest",
 					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"Enter Database Name": {
-						"type": "string"
-					}
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
