@@ -9,19 +9,19 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "EMPID",
+				"name": "Empid",
 				"type": "varchar"
 			},
 			{
-				"name": "EMPNAME",
+				"name": "empname",
 				"type": "varchar"
 			},
 			{
-				"name": "SALARY",
+				"name": "salary",
 				"type": "varchar"
 			},
 			{
-				"name": "DEPTID",
+				"name": "deptid",
 				"type": "varchar"
 			}
 		],
