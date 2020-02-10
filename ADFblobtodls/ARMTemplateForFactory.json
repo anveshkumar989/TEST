@@ -190,11 +190,6 @@
 						]
 					}
 				],
-				"parameters": {
-					"ENTER": {
-						"type": "string"
-					}
-				},
 				"annotations": []
 			},
 			"dependsOn": [
