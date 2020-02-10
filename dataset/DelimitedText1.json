@@ -1,0 +1,14 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
