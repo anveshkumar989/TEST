@@ -52,7 +52,7 @@
 				"parameters": {
 					"Enter Database Name": {
 						"type": "String",
-						"defaultValue": "enter database"
+						"defaultValue": "Enter Database Name"
 					}
 				},
 				"annotations": [],
@@ -145,17 +145,7 @@
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabasetest",
 					"type": "LinkedServiceReference",
-					"parameters": {
-						"Enter Database Name": {
-							"value": "@dataset().Enter Database Name",
-							"type": "Expression"
-						}
-					}
-				},
-				"parameters": {
-					"Enter Database Name": {
-						"type": "string"
-					}
+					"parameters": {}
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -274,12 +264,7 @@
 							{
 								"referenceName": "AzureSqlTable1",
 								"type": "DatasetReference",
-								"parameters": {
-									"Enter Database Name": {
-										"value": "@pipeline().parameters.ENTER",
-										"type": "Expression"
-									}
-								}
+								"parameters": {}
 							}
 						]
 					}
