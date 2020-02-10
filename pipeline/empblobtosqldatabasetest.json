@@ -36,10 +36,6 @@
 			"DATABASENAME": {
 				"type": "string",
 				"defaultValue": "ENTER DATABASE"
-			},
-			"databaseName": {
-				"type": "String",
-				"defaultValue": "Enter database name"
 			}
 		},
 		"annotations": []
