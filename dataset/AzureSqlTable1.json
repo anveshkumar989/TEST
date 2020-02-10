@@ -3,7 +3,10 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabasetest",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Enter Database Name": "DEV"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
