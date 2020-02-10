@@ -6,95 +6,12 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "ADFblobtodls"
-		},
-		"AzureSqlDatabasetest_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabasetest'"
-		},
-		"DLSTarget_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'DLSTarget'"
-		},
-		"EMPAzureblobstorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'EMPAzureblobstorage'"
-		},
-		"LatestAzureSQLDBConnection_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LatestAzureSQLDBConnection'"
-		},
-		"DLSTarget_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://adlstorages.azuredatalakestore.net/webhdfs/v1"
-		},
-		"DLSTarget_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "55982e5d-e2b1-4a38-a13d-49947eb0fb17"
-		},
-		"DLSTarget_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "6267732a-892c-4094-a45a-99c6799d096e"
-		},
-		"DLSTarget_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "9a0515ae-f9b9-4de1-87bc-f64a14505d89"
-		},
-		"DLSTarget_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "MyFirstResourceGroup"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabasetest')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabasetest_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DLSTarget')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDataLakeStore",
-				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('DLSTarget_properties_typeProperties_dataLakeStoreUri')]",
-					"servicePrincipalId": "[parameters('DLSTarget_properties_typeProperties_servicePrincipalId')]",
-					"servicePrincipalKey": {
-						"type": "SecureString",
-						"value": "[parameters('DLSTarget_servicePrincipalKey')]"
-					},
-					"tenant": "[parameters('DLSTarget_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('DLSTarget_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('DLSTarget_properties_typeProperties_resourceGroupName')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EMPAzureblobstorage')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('EMPAzureblobstorage_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/BLOBTODEVEMPTABLE')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -180,115 +97,18 @@
 						"inputs": [
 							{
 								"referenceName": "EMPBLOB",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureSqlTable1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
 				],
 				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/EMPBLOB')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EMPBLOB')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "EMPAzureblobstorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "emplatest.txt",
-						"container": "source"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/EMPAzureblobstorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabasetest",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Empid",
-						"type": "varchar"
-					},
-					{
-						"name": "empname",
-						"type": "varchar"
-					},
-					{
-						"name": "salary",
-						"type": "varchar"
-					},
-					{
-						"name": "deptid",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "employeelatest"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabasetest')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LatestAzureSQLDBConnection')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('LatestAzureSQLDBConnection_connectionString')]"
-				}
 			},
 			"dependsOn": []
 		},
@@ -334,9 +154,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabasetest')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/EMPBLOBParameter')]",
@@ -383,9 +201,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/EMPAzureblobstorage')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/blobtotablethroghparamter')]",
@@ -472,25 +288,20 @@
 						"inputs": [
 							{
 								"referenceName": "EMPBLOB",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureSqlTable1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
 				],
 				"annotations": []
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/EMPBLOB')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
