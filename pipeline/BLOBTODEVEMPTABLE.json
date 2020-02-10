@@ -83,7 +83,13 @@
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Enter Database Name": {
+								"value": "@pipeline().parameters.Enter database name",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
