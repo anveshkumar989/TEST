@@ -1,23 +1,35 @@
 {
-	"name": "emptarget",
+	"name": "empslinkedservice",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DLSTarget",
+			"referenceName": "EMPAzureblobstorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
+				"type": "AzureBlobStorageLocation",
 				"fileName": "emplatest.txt",
-				"folderPath": "target"
+				"container": "source"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"quoteChar": "\""
 		},
-		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
 }

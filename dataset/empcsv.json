@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "emp.xlsx",
+				"fileName": "emplatest.txt",
 				"container": "source"
 			},
 			"columnDelimiter": ",",
