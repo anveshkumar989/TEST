@@ -1,0 +1,33 @@
+{
+	"name": "AzureSqlTesttable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabasetest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Empid",
+				"type": "varchar"
+			},
+			{
+				"name": "empname",
+				"type": "varchar"
+			},
+			{
+				"name": "salary",
+				"type": "varchar"
+			},
+			{
+				"name": "deptid",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employee"
+		}
+	}
+}
