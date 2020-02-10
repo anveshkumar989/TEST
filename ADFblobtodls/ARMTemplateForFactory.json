@@ -129,7 +129,8 @@
 								}
 							},
 							"sink": {
-								"type": "AzureSqlSink"
+								"type": "AzureSqlSink",
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -185,11 +186,21 @@
 							{
 								"referenceName": "AzureSqlTable1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Enter Database Name": {
+										"value": "@pipeline().parameters.Enter database name",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
 				],
+				"parameters": {
+					"Enter database name": {
+						"type": "String"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -245,12 +256,16 @@
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabasetest",
 					"type": "LinkedServiceReference",
-					"parameters": {}
+					"parameters": {
+						"Enter Database Name": {
+							"value": "@dataset().Enter Database Name",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"Enter Database Name": {
-						"type": "string",
-						"defaultValue": "@{linkedService().Enter Database Name}"
+						"type": "string"
 					}
 				},
 				"annotations": [],
