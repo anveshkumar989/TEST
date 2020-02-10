@@ -5,11 +5,6 @@
 			"referenceName": "AzureSqlDatabasetest",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Enter Database Name": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
