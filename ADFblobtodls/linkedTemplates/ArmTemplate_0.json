@@ -51,8 +51,8 @@
 			"properties": {
 				"parameters": {
 					"Enter Database Name": {
-						"type": "String",
-						"defaultValue": "Enter Database Name"
+						"type": "string",
+						"defaultValue": "@{linkedService().Enter Database Name}"
 					}
 				},
 				"annotations": [],
@@ -146,6 +146,12 @@
 					"referenceName": "AzureSqlDatabasetest",
 					"type": "LinkedServiceReference",
 					"parameters": {}
+				},
+				"parameters": {
+					"Enter Database Name": {
+						"type": "string",
+						"defaultValue": "@{linkedService().Enter Database Name}"
+					}
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
