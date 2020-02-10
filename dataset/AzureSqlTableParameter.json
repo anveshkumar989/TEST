@@ -5,6 +5,11 @@
 			"referenceName": "AzureSqlDatabasetest",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Enter table name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -27,7 +32,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "employeelatest"
+			"table": {
+				"value": "@dataset().Enter table name",
+				"type": "Expression"
+			}
 		}
 	}
 }

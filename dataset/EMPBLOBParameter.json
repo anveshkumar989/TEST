@@ -5,12 +5,20 @@
 			"referenceName": "EMPAzureblobstorage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Enter file name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "emplatest.txt",
+				"fileName": {
+					"value": "@dataset().Enter file name",
+					"type": "Expression"
+				},
 				"container": "source"
 			},
 			"columnDelimiter": ",",
