@@ -147,6 +147,11 @@
 					"type": "LinkedServiceReference",
 					"parameters": {}
 				},
+				"parameters": {
+					"Enter Database Name": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [
@@ -264,11 +269,21 @@
 							{
 								"referenceName": "AzureSqlTable1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Enter Database Name": {
+										"value": "@pipeline().parameters.ENTER",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
 				],
+				"parameters": {
+					"ENTER": {
+						"type": "string"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
